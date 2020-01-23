@@ -8,6 +8,9 @@ RUN apk --no-cache update && \
 # Install AWS CLI
 RUN pip install --no-cache --upgrade awscli
 
+RUN git clone https://github.com/RhinoSecurityLabs/pacu /opt/pacu && cd /opt/pacu && bash /opt/pacu/install.sh
+RUN git clone https://github.com/toniblyx/prowler /opt/prowler
+
 # Install Gcloud SDK
 ARG CLOUD_SDK_VERSION=240.0.0
 ENV CLOUD_SDK_VERSION=$CLOUD_SDK_VERSION
