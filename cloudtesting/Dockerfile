@@ -2,8 +2,43 @@ FROM alpine:latest
 
 # Install base tools
 RUN apk --no-cache update && \
-    apk add curl python py-pip py-crcmod libc6-compat gnupg bash openssh-client git ca-certificates nmap nmap-ncat socat bind-tools openssl jq wget gcc libffi-dev musl-dev openssl-dev python-dev make && \
-    rm -rf /var/cache/apk/*
+	apk add gcc \
+	git \
+	vim \
+	wget \
+	curl \
+	make \
+	nmap \
+	nmap-ncat \
+	whois \
+	python \
+	python3 \
+	py-pip \
+	bash \
+	perl \
+	nikto \
+	net-tools \
+	dnsrecon \
+	go \
+	john \
+	docs \
+	aircrack-ng \
+	tmux \
+	whois \
+	jq \
+	openssh-client \
+	exiftool \
+	bind-tools \
+	ca-certificates \
+	py-crcmod \
+	libc6-compat \
+	socat \
+	openssl \
+	libffi-dev \
+	musl-dev \
+	openssl-dev \
+	python-dev \
+	&& rm -rf /var/cache/apk/*
 
 # Install AWS CLI
 RUN pip install --no-cache --upgrade awscli
@@ -42,3 +77,9 @@ RUN mkdir -p /tmp/download \
     && rm -rf /tmp/download
 
 WORKDIR /root/
+
+# Install amass
+ENV GO111MODULE=on
+RUN go get -v -u github.com/OWASP/Amass/v3/...
+ENV GOPATH=/root/go/
+ENV PATH="/root/go/bin:$PATH"
