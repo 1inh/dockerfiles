@@ -8,6 +8,7 @@ RUN apt-get update && \
         awscli curl openssl git gdb gobuster john man-db \
         tmux nmap sqlmap sslscan testssl.sh python3-pip net-tools \
         hping3 wfuzz hash-identifier netcat whois jq wget \
+        exploitdb sudo wordlists awscli openvpn \
         finger crunch cewl python-pip ncat ftp ssh exiftool hydra && \
     apt-get clean
 
