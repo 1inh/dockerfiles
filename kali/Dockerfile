@@ -7,7 +7,7 @@ RUN apt-get update && \
     apt-get install -y \
         awscli curl openssl git gdb gobuster john man-db \
         tmux nmap sqlmap sslscan testssl.sh python3-pip net-tools \
-        hping3 hash-identifier netcat whois jq wget libcurl4-openssl-dev \
+        hping3 hash-identifier netcat whois jq wget libcurl4-openssl-dev libssl-dev \
         exploitdb sudo wordlists awscli openvpn dnsutils host \
         finger crunch cewl python-pip ncat ftp ssh exiftool hydra && \
     apt-get clean
