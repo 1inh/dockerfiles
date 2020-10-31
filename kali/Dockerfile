@@ -58,13 +58,13 @@ RUN pip3 install --no-cache --upgrade wfuzz
 RUN pip3 install --no-cache --upgrade awscli
 
 # install pacu
-RUN git clone https://github.com/RhinoSecurityLabs/pacu /opt/pacu && cd /opt/pacu && bash /opt/pacu/install.sh
+# RUN git clone https://github.com/RhinoSecurityLabs/pacu /opt/pacu && cd /opt/pacu && bash /opt/pacu/install.sh
 
 # install prowler
-RUN git clone https://github.com/toniblyx/prowler /opt/prowler
+# RUN git clone https://github.com/toniblyx/prowler /opt/prowler
 
 # Install Azure CLI
-RUN pip3 install --no-cache azure-cli
+# RUN pip3 install --no-cache azure-cli
 
 # Install kubectl
 COPY --from=dtzar/helm-kubectl /usr/local/bin/kubectl /usr/local/bin/kubectl
