@@ -23,8 +23,8 @@ RUN apt-get update && \
 	hydra \
 	john \
 	jq \
-	libcurl4-openssl-dev \ # for wfuzz
-	libssl-dev \ # for wfuzz
+	libcurl4-openssl-dev \
+	libssl-dev \
 	man-db \
 	ncat \
 	net-tools \
