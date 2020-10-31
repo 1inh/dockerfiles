@@ -71,5 +71,10 @@ RUN pip3 install --no-cache --upgrade awscli
 # Install helm binary
 # COPY --from=dtzar/helm-kubectl /usr/local/bin/helm /usr/local/bin/helm
 
+# add user 1inh
+RUN useradd -ms /bin/bash 1inh
+RUN echo '1inh:curiousgeorge' | chpasswd
+RUN usermod -a -G sudo 1inh
+
 # Set entrypoint and working directory
-WORKDIR /root/
+WORKDIR /home/1inh
