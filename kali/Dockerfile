@@ -5,17 +5,72 @@ RUN apt-get update && \
     apt-get upgrade -y && \
     apt-get dist-upgrade -y && \
     apt-get install -y \
-        awscli curl openssl git gdb gobuster john man-db \
-        tmux nmap sqlmap sslscan testssl.sh python3-pip net-tools \
-        hping3 hash-identifier netcat whois jq wget libcurl4-openssl-dev libssl-dev \
-        exploitdb sudo wordlists awscli openvpn dnsutils host \
-        finger crunch cewl python-pip ncat ftp ssh exiftool hydra && \
+		cewl \
+		crunch \
+		curl \
+		dnsutils
+		host \
+		exiftool \
+		exploitdb \
+		finger \
+		ftp \
+		gdb \
+		git \
+		gobuster \
+		hashcat \
+		hash-identifier \
+		hping3 \
+		hydra \
+		john \
+		jq \
+		libcurl4-openssl-dev \ # for wfuzz
+		libssl-dev \ # for wfuzz
+		man-db \
+		ncat \
+		net-tools \
+		netcat \
+		nmap \
+		openssl \
+		openvpn \
+		python-pip \
+		python3-pip \
+		sqlmap \
+		ssh \
+		sslscan \
+		sudo \
+		testssl.sh \
+		tmux \
+		vim \
+		wget \
+		whois \
+		wordlists && \
+
     apt-get clean
 
 # install shodan
-RUN pip3 install shodan
-RUN pip3 install --upgrade pycurl
-RUN pip3 install --upgrade wfuzz
+RUN pip3 install --no-cache shodan
+
+# install wfuzz
+RUN pip3 install --no-cache --upgrade pycurl
+RUN pip3 install --no-cache --upgrade wfuzz
+
+# install awscli
+RUN pip3 install --no-cache --upgrade awscli
+
+# install pacu
+RUN git clone https://github.com/RhinoSecurityLabs/pacu /opt/pacu && cd /opt/pacu && bash /opt/pacu/install.sh
+
+# install prowler
+RUN git clone https://github.com/toniblyx/prowler /opt/prowler
+
+# Install Azure CLI
+RUN pip3 install --no-cache azure-cli
+
+# Install kubectl
+COPY --from=dtzar/helm-kubectl /usr/local/bin/kubectl /usr/local/bin/kubectl
+
+# Install helm binary
+COPY --from=dtzar/helm-kubectl /usr/local/bin/helm /usr/local/bin/helm
 
 # Set entrypoint and working directory
 WORKDIR /root/
