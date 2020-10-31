@@ -8,7 +8,7 @@ RUN apt-get update && \
 	cewl \
 	crunch \
 	curl \
-	dnsutils
+	dnsutils \
 	host \
 	exiftool \
 	exploitdb \
