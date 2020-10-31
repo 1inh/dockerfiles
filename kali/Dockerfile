@@ -44,7 +44,6 @@ RUN apt-get update && \
 		wget \
 		whois \
 		wordlists && \
-
     apt-get clean
 
 # install shodan
