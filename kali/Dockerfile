@@ -5,46 +5,46 @@ RUN apt-get update && \
     apt-get upgrade -y && \
     apt-get dist-upgrade -y && \
     apt-get install -y \
-		cewl \
-		crunch \
-		curl \
-		dnsutils
-		host \
-		exiftool \
-		exploitdb \
-		finger \
-		ftp \
-		gdb \
-		git \
-		gobuster \
-		hashcat \
-		hash-identifier \
-		hping3 \
-		hydra \
-		john \
-		jq \
-		libcurl4-openssl-dev \ # for wfuzz
-		libssl-dev \ # for wfuzz
-		man-db \
-		ncat \
-		net-tools \
-		netcat \
-		nmap \
-		openssl \
-		openvpn \
-		python-pip \
-		python3-pip \
-		sqlmap \
-		ssh \
-		sslscan \
-		sudo \
-		testssl.sh \
-		tmux \
-		vim \
-		wget \
-		whois \
-		wordlists && \
-    apt-get clean
+	cewl \
+	crunch \
+	curl \
+	dnsutils
+	host \
+	exiftool \
+	exploitdb \
+	finger \
+	ftp \
+	gdb \
+	git \
+	gobuster \
+	hashcat \
+	hash-identifier \
+	hping3 \
+	hydra \
+	john \
+	jq \
+	libcurl4-openssl-dev \ # for wfuzz
+	libssl-dev \ # for wfuzz
+	man-db \
+	ncat \
+	net-tools \
+	netcat \
+	nmap \
+	openssl \
+	openvpn \
+	python-pip \
+	python3-pip \
+	sqlmap \
+	ssh \
+	sslscan \
+	sudo \
+	testssl.sh \
+	tmux \
+	vim \
+	wget \
+	whois \
+	wordlists \
+    && apt-get clean
 
 # install shodan
 RUN pip3 install --no-cache shodan
