@@ -67,10 +67,10 @@ RUN pip3 install --no-cache --upgrade awscli
 # RUN pip3 install --no-cache azure-cli
 
 # Install kubectl
-COPY --from=dtzar/helm-kubectl /usr/local/bin/kubectl /usr/local/bin/kubectl
+# COPY --from=dtzar/helm-kubectl /usr/local/bin/kubectl /usr/local/bin/kubectl
 
 # Install helm binary
-COPY --from=dtzar/helm-kubectl /usr/local/bin/helm /usr/local/bin/helm
+# COPY --from=dtzar/helm-kubectl /usr/local/bin/helm /usr/local/bin/helm
 
 # Set entrypoint and working directory
 WORKDIR /root/
